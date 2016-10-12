@@ -6,7 +6,7 @@ public class PlayerMoveScript : MonoBehaviour {
     public GameObject fist;
 	// Use this for initialization
 	void Start () {
-	
+        fist.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -30,10 +30,15 @@ public class PlayerMoveScript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Space) && fist.transform.position.x < transform.position.x + 2)
         {
+            if (!fist.activeSelf)
+            {
+                fist.SetActive(true);
+            }
             fist.transform.Translate(0.5f, 0, 0);
         }
         else
         {
+            fist.SetActive(false);
             fist.transform.position = transform.position;
         }
     }
