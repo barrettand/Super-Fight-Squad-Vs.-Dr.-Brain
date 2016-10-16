@@ -9,7 +9,8 @@ public class PlayerMoveScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	}
+        bullet.GetComponent<AttackScript>().left = false;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -19,10 +20,12 @@ public class PlayerMoveScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8)
         {
             transform.Translate(-0.1f, 0, 0);
+            bullet.GetComponent<AttackScript>().left = true;
         }
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
         {
             transform.Translate(0.1f, 0, 0);
+            bullet.GetComponent<AttackScript>().left = false;
         }
         if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 0)
         {

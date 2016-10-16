@@ -4,6 +4,7 @@ using System.Collections;
 public class AttackScript : MonoBehaviour {
 
     private SpriteRenderer sr;
+    public bool left;
 
     void Start ()
     {
@@ -14,7 +15,14 @@ public class AttackScript : MonoBehaviour {
 	void Update () {
         if (sr.isVisible)
         {
-            transform.Translate(0.5f, 0, 0);
+            if (left)
+            {
+                transform.Translate(-0.5f, 0, 0);
+            }
+            else
+            {
+                transform.Translate(0.5f, 0, 0);
+            }
         }
         else
         {
