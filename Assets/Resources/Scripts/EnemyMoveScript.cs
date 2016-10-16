@@ -13,7 +13,6 @@ public class EnemyMoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         shootTimer += Time.deltaTime;
-        print(transform.position.y == player.transform.position.y);
 
         if (transform.position.x < player.transform.position.x - 2)
         {
@@ -33,7 +32,7 @@ public class EnemyMoveScript : MonoBehaviour {
         {
             transform.Translate(0, -0.05f, 0);
         }
-        if (transform.position.y == player.transform.position.y && shootTimer >= shootDelay)
+        if ((transform.position.y > player.transform.position.y - 1 || transform.position.y < player.transform.position.y + 1) && shootTimer >= shootDelay)
         {
             Instantiate(bullet, transform.position, transform.rotation);
             shootTimer = 0;

@@ -19,11 +19,18 @@ public class PlayerMoveScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8)
         {
-            transform.Translate(-0.1f, 0, 0);
+            if (transform.localScale.x > 0) {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
+            transform.Translate(0.1f, 0, 0);
             bullet.GetComponent<AttackScript>().left = true;
         }
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
         {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            }
             transform.Translate(0.1f, 0, 0);
             bullet.GetComponent<AttackScript>().left = false;
         }
