@@ -16,22 +16,27 @@ public class PlayerMoveScript : MonoBehaviour {
 	void Update ()
     {
         shootTimer += Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (transform.localScale.x > 0) {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            transform.Translate(0.1f, 0, 0);
+            if (transform.localPosition.x > -7)
+            {
+                transform.Translate(0.1f, 0, 0);
+            }
             bullet.GetComponent<AttackScript>().left = true;
         }
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 58.1)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             if (transform.localScale.x < 0)
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
-            transform.Translate(0.1f, 0, 0);
+            if (transform.position.x < 58.1)
+            {
+                transform.Translate(0.1f, 0, 0);
+            }
             bullet.GetComponent<AttackScript>().left = false;
         }
         if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 0)

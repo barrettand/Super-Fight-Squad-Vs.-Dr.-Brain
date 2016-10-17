@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 4f574f0472e42e34f9f4395c617a654d
-timeCreated: 1476733470
+timeCreated: 1476734027
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Spess Mahrine_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +52,20 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Spess Mahrine_0
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 516
+        width: 326
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

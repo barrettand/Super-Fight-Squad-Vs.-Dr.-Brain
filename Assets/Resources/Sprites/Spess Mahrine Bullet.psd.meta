@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 57f5930522de62f4b96b76b39857f63a
-timeCreated: 1476733471
+timeCreated: 1476734054
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Spess Mahrine Bullet_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +52,20 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Spess Mahrine Bullet_0
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 135
+        width: 55
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
