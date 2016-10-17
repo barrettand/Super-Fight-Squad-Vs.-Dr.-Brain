@@ -17,7 +17,7 @@ public class PlayerMoveScript : MonoBehaviour {
     {
         shootTimer += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -8)
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > 0)
         {
             if (transform.localScale.x > 0) {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
@@ -25,7 +25,7 @@ public class PlayerMoveScript : MonoBehaviour {
             transform.Translate(0.1f, 0, 0);
             bullet.GetComponent<AttackScript>().left = true;
         }
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 8)
+        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 58.1)
         {
             if (transform.localScale.x < 0)
             {
