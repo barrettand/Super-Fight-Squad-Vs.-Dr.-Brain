@@ -39,7 +39,7 @@ public class PlayerMoveScript : MonoBehaviour {
             }
             bullet.GetComponent<AttackScript>().left = false;
         }
-        if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 0)
+        if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < -1)
         {
             transform.Translate(0, 0.1f, 0);
         }
