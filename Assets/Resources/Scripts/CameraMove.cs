@@ -60,7 +60,10 @@ public class CameraMove : MonoBehaviour {
             stopped = false;
         }
         if (player.transform.localPosition.x > 0 && cam.transform.position.x <= 58.1 && !stopped) {
-            player.transform.localPosition = new Vector3(0, player.transform.localPosition.y, player.transform.localPosition.z);
+            if (player.transform.localPosition.x > 0)
+            {
+                player.transform.localPosition = new Vector3(player.transform.localPosition.x - 0.1f, player.transform.localPosition.y, player.transform.localPosition.z);
+            }
             cam.transform.Translate(0.1f, 0, 0);
         }
         if (cam.transform.position.x >= 58.1)

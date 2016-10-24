@@ -16,12 +16,14 @@ public class EnemyMoveScript : MonoBehaviour {
 
         if (transform.position.x < player.transform.position.x - 2)
         {
-            transform.Translate(0.05f, 0, 0);
+            transform.Translate(-0.05f, 0, 0);
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             bullet.GetComponent<AttackScript>().left = false;
         }
         if (transform.position.x > player.transform.position.x + 2)
         {
             transform.Translate(-0.05f, 0, 0);
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             bullet.GetComponent<AttackScript>().left = true;
         }
         if (transform.position.y < player.transform.position.y)
