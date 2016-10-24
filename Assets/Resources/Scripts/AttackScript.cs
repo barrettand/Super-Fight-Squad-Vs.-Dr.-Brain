@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AttackScript : MonoBehaviour {
@@ -34,6 +35,7 @@ public class AttackScript : MonoBehaviour {
         if (col.gameObject.name.Contains("Enemy") && !this.gameObject.name.Contains("Hench")) {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
+            GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();
         }
         if (col.gameObject.name.Contains("Player") && this.gameObject.name.Contains("Hench"))
         {

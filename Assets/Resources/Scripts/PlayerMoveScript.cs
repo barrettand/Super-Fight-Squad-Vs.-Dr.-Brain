@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMoveScript : MonoBehaviour {
@@ -6,15 +7,18 @@ public class PlayerMoveScript : MonoBehaviour {
     public GameObject bullet;
     public float shootDelay;
     private float shootTimer = 0;
+    public int playerScore;
 
 	// Use this for initialization
 	void Start () {
         bullet.GetComponent<AttackScript>().left = false;
+        playerScore = 0;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        GameObject.Find("Score").GetComponent<Text>().text = playerScore.ToString();
         shootTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -52,5 +56,8 @@ public class PlayerMoveScript : MonoBehaviour {
             Instantiate(bullet, transform.position, transform.rotation);
             shootTimer = 0;
         }
+    }
+    public void AddScore() {
+        playerScore += 100;
     }
 }
