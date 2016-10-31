@@ -16,12 +16,27 @@ public class AttackScript : MonoBehaviour {
 	void Update () {
         if (sr.isVisible)
         {
-            if (left)
+            if (transform.gameObject.name.Contains("Hench"))
             {
+                if (left)
+                {
+                    transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                }
                 transform.Translate(-0.5f, 0, 0);
             }
-            else
-            {
+            else {
+                if (left)
+                {
+                    transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                }
                 transform.Translate(0.5f, 0, 0);
             }
         }
@@ -33,6 +48,7 @@ public class AttackScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.name.Contains("Enemy") && !this.gameObject.name.Contains("Hench")) {
+            GameObject.Find("Player").GetComponent<PlayerMoveScript>().opponent = null;
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();

@@ -408,6 +408,7 @@ MonoBehaviour:
   bullet: {fileID: 1000010753830964, guid: 48ff6432b0563524cb7f4630a139df50, type: 2}
   shootDelay: 0.15
   playerScore: 0
+  opponent: {fileID: 0}
 --- !u!1001 &1010168095
 Prefab:
   m_ObjectHideFlags: 0
@@ -565,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -638,7 +639,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 6c9f6e1f02fe46b409fa514b7e301e60, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.366}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &1756226164

@@ -8,6 +8,7 @@ public class PlayerMoveScript : MonoBehaviour {
     public float shootDelay;
     private float shootTimer = 0;
     public int playerScore;
+    public EnemyMoveScript opponent;
 
 	// Use this for initialization
 	void Start () {
