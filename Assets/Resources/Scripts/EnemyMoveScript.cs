@@ -6,6 +6,7 @@ public class EnemyMoveScript : MonoBehaviour {
     PlayerMoveScript[] players;
     float shootDelay = 0.5f;
     private float shootTimer = 0;
+    bool running = false;
     // Use this for initialization
     void Start () {
         players = FindObjectsOfType(typeof(PlayerMoveScript)) as PlayerMoveScript[];
@@ -44,30 +45,51 @@ public class EnemyMoveScript : MonoBehaviour {
     {
         shootTimer += Time.deltaTime;
 
-        if (transform.position.x < player.transform.position.x - 2)
+        if ((transform.position.y > player.transform.position.y - 1 && transform.position.y < player.transform.position.y + 1 && GetComponent<SpriteRenderer>().isVisible) || shootTimer >= shootDelay)
         {
-            transform.Translate(-0.05f, 0, 0);
-            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
-            bullet.GetComponent<AttackScript>().left = false;
+            if (!running)
+            {
+                StartCoroutine(shoot());
+                shootTimer = 0;
+            }
         }
-        if (transform.position.x > player.transform.position.x + 2)
+        else
         {
-            transform.Translate(-0.05f, 0, 0);
-            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
-            bullet.GetComponent<AttackScript>().left = true;
+            StopCoroutine(shoot());
+            if (transform.position.x < player.transform.position.x - 6)
+            {
+                transform.Translate(-0.05f, 0, 0);
+                transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+                bullet.GetComponent<AttackScript>().left = false;
+            }
+            if (transform.position.x > player.transform.position.x + 6)
+            {
+                transform.Translate(-0.05f, 0, 0);
+                transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+                bullet.GetComponent<AttackScript>().left = true;
+            }
+            if (transform.position.y < player.transform.position.y)
+            {
+                transform.Translate(0, 0.05f, 0);
+            }
+            if (transform.position.y > player.transform.position.y)
+            {
+                transform.Translate(0, -0.05f, 0);
+            }
         }
-        if (transform.position.y < player.transform.position.y)
+    }
+    IEnumerator shoot() {
+        running = true;
+        yield return new WaitForSeconds(0.5f);
+        if (bullet.GetComponent<AttackScript>().left)
         {
-            transform.Translate(0, 0.05f, 0);
+            Instantiate(bullet, transform.position - new Vector3(1, 0, 0), transform.rotation);
         }
-        if (transform.position.y > player.transform.position.y)
+        else
         {
-            transform.Translate(0, -0.05f, 0);
+            Instantiate(bullet, transform.position + new Vector3(1, 0, 0), transform.rotation);
         }
-        if ((transform.position.y > player.transform.position.y - 1 && transform.position.y < player.transform.position.y + 1) && shootTimer >= shootDelay)
-        {
-            Instantiate(bullet, transform.position, transform.rotation);
-            shootTimer = 0;
-        }
+        yield return new WaitForSeconds(0.5f);
+        running = false;
     }
 }

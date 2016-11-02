@@ -10,14 +10,24 @@ public class CameraMove : MonoBehaviour {
     bool spawned = false;
     bool spawned1 = false;
     bool spawned2 = false;
+    GameObject GO;
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player");
         cam = Camera.main;
+        GO = GameObject.Find("GO");
+        GO.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (!stopped) {
+            GO.SetActive(true);
+        }
+        else
+        {
+            GO.SetActive(false);
+        }
         if (cam.transform.position.x == 0 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;

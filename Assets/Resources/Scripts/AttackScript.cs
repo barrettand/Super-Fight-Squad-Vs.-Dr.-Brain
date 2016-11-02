@@ -9,6 +9,20 @@ public class AttackScript : MonoBehaviour {
 
     void Start ()
     {
+        if (gameObject.name.Contains("Hench"))
+        {
+            foreach (EnemyMoveScript e in FindObjectsOfType(typeof(EnemyMoveScript)) as EnemyMoveScript[])
+            {
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), e.GetComponent<Collider2D>());
+            }
+        }
+        else
+        {
+            foreach (PlayerMoveScript p in FindObjectsOfType(typeof(PlayerMoveScript)) as PlayerMoveScript[])
+            {
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), p.GetComponent<Collider2D>());
+            }
+        }
         sr = GetComponent<SpriteRenderer>();
     }
 	
@@ -26,7 +40,7 @@ public class AttackScript : MonoBehaviour {
                 {
                     transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
                 }
-                transform.Translate(-0.5f, 0, 0);
+                transform.Translate(-0.25f, 0, 0);
             }
             else {
                 if (left)
@@ -47,13 +61,13 @@ public class AttackScript : MonoBehaviour {
 	}
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name.Contains("Enemy") && !this.gameObject.name.Contains("Hench")) {
+        if (col.gameObject.name.Contains("Enemy") && !gameObject.name.Contains("Hench")) {
             GameObject.Find("Player").GetComponent<PlayerMoveScript>().opponent = null;
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();
         }
-        if (col.gameObject.name.Contains("Player") && this.gameObject.name.Contains("Hench"))
+        if (col.gameObject.name.Contains("Player") && gameObject.name.Contains("Hench"))
         {
             if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -142 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
             {
