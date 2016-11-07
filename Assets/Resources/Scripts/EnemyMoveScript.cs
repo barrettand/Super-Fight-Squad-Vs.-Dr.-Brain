@@ -43,9 +43,12 @@ public class EnemyMoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        shootTimer += Time.deltaTime;
+        if (GetComponent<SpriteRenderer>().isVisible)
+        {
+            shootTimer += Time.deltaTime;
+        }
 
-        if ((transform.position.y > player.transform.position.y - 1 && transform.position.y < player.transform.position.y + 1 && GetComponent<SpriteRenderer>().isVisible) || shootTimer >= shootDelay)
+        if ((transform.position.y > player.transform.position.y - 0.1f && transform.position.y < player.transform.position.y + 0.1f && GetComponent<SpriteRenderer>().isVisible) || shootTimer >= shootDelay)
         {
             if (!running)
             {
@@ -56,15 +59,21 @@ public class EnemyMoveScript : MonoBehaviour {
         else
         {
             StopCoroutine(shoot());
-            if (transform.position.x < player.transform.position.x - 6)
+            if (transform.position.x < player.transform.position.x)
             {
-                transform.Translate(-0.05f, 0, 0);
+                if (transform.position.x < player.transform.position.x - 3)
+                {
+                    transform.Translate(-0.05f, 0, 0);
+                }
                 transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
                 bullet.GetComponent<AttackScript>().left = false;
             }
-            if (transform.position.x > player.transform.position.x + 6)
+            if (transform.position.x > player.transform.position.x)
             {
-                transform.Translate(-0.05f, 0, 0);
+                if (transform.position.x > player.transform.position.x + 3)
+                {
+                    transform.Translate(-0.05f, 0, 0);
+                }
                 transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
                 bullet.GetComponent<AttackScript>().left = true;
             }
@@ -89,7 +98,7 @@ public class EnemyMoveScript : MonoBehaviour {
         {
             Instantiate(bullet, transform.position + new Vector3(1, 0, 0), transform.rotation);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         running = false;
     }
 }

@@ -21,6 +21,14 @@ public class PlayerMoveScript : MonoBehaviour {
     {
         GameObject.Find("Score").GetComponent<Text>().text = playerScore.ToString();
         shootTimer += Time.deltaTime;
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+        {
+            GetComponent<Animator>().SetBool("Walking", false);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Walking", true);
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (transform.localScale.x > 0) {
@@ -28,7 +36,7 @@ public class PlayerMoveScript : MonoBehaviour {
             }
             if (transform.localPosition.x > -7)
             {
-                transform.Translate(0.1f, 0, 0);
+                    transform.Translate(0.1f, 0, 0);
             }
             bullet.GetComponent<AttackScript>().left = true;
         }
@@ -46,14 +54,33 @@ public class PlayerMoveScript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < -1)
         {
-            transform.Translate(0, 0.1f, 0);
+            if (Input.GetKey(KeyCode.R))
+            {
+                transform.Translate(0, 0.5f, 0);
+            }
+            else
+            {
+                transform.Translate(0, 0.1f, 0);
+            }
         }
         if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -4)
         {
-            transform.Translate(0, -0.1f, 0);
+            if (Input.GetKey(KeyCode.R))
+            {
+                transform.Translate(0, -0.5f, 0);
+            }
+            else
+            {
+                transform.Translate(0, -0.1f, 0);
+            }
         }
-        if (Input.GetKey(KeyCode.Space) && shootTimer >= shootDelay)
+        if (shootTimer >= shootDelay)
         {
+            GameObject.Find("Fire Effect").GetComponent<Animator>().SetBool("Fired", false);
+        }
+        if (Input.GetKey(KeyCode.Space) && shootTimer > shootDelay)
+        {
+            GameObject.Find("Fire Effect").GetComponent<Animator>().SetBool("Fired", true);
             Instantiate(bullet, transform.position, transform.rotation);
             shootTimer = 0;
         }
