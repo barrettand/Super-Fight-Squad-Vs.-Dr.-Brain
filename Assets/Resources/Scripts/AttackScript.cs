@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class AttackScript : MonoBehaviour {
 
@@ -71,10 +73,11 @@ public class AttackScript : MonoBehaviour {
         {
             if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -142 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
             {
-                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(10, 0, 0);
+                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(260, 0, 0);
             }
             else {
                 Destroy(col.gameObject);
+                SceneManager.LoadScene("Menu");
             }
             Destroy(this.gameObject);
         }

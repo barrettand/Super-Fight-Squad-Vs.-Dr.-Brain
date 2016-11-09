@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class CameraMove : MonoBehaviour {
@@ -32,23 +33,23 @@ public class CameraMove : MonoBehaviour {
         {
             stopped = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned)
+        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned)
         {
             stopped = true;
             Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 8, cam.transform.position.y, 0), cam.transform.rotation);
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;
             spawned = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 30 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned1)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned1)
         {
             stopped = true;
             Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 8, cam.transform.position.y, 0), cam.transform.rotation);
             Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 8, cam.transform.position.y, 0), cam.transform.rotation);
         }
-        else if (Mathf.Round(cam.transform.position.x) == 30 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;
             spawned1 = true;
@@ -58,8 +59,8 @@ public class CameraMove : MonoBehaviour {
             stopped = true;
             Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 8, cam.transform.position.y, 0), cam.transform.rotation);
             Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 8, cam.transform.position.y, 0), cam.transform.rotation);
-            Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 16, cam.transform.position.y, 0), cam.transform.rotation);
-            Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 16, cam.transform.position.y, 0), cam.transform.rotation);
+            Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 9, cam.transform.position.y, 0), cam.transform.rotation);
+            Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 9, cam.transform.position.y, 0), cam.transform.rotation);
         }
         else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
@@ -69,16 +70,20 @@ public class CameraMove : MonoBehaviour {
         else {
             stopped = false;
         }
-        if (player.transform.localPosition.x > 0 && cam.transform.position.x <= 58.1 && !stopped) {
+        if (player.transform.localPosition.x > 0 && cam.transform.position.x <= 42.2 && !stopped) {
             if (player.transform.localPosition.x > 0)
             {
                 player.transform.localPosition = new Vector3(player.transform.localPosition.x - 0.1f, player.transform.localPosition.y, player.transform.localPosition.z);
             }
             cam.transform.Translate(0.1f, 0, 0);
         }
-        if (cam.transform.position.x >= 58.1)
+        if (cam.transform.position.x >= 42.2)
         {
             GameObject.Find("Cleared").GetComponent<Text>().enabled = true;
+        }
+        if (cam.transform.position.x >= 42.2 && Input.GetKey(KeyCode.Space) && GameObject.Find("Cleared").GetComponent<Text>().enabled)
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 }
