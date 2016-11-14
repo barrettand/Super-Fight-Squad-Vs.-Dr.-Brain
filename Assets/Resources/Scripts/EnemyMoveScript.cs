@@ -90,13 +90,17 @@ public class EnemyMoveScript : MonoBehaviour {
     IEnumerator shoot() {
         running = true;
         yield return new WaitForSeconds(0.5f);
-        if (bullet.GetComponent<AttackScript>().left)
+        if (transform.position.x > player.transform.position.x)
         {
-            Instantiate(bullet, transform.position - new Vector3(1, 0, 0), transform.rotation);
+            GameObject b = Instantiate(bullet, transform.position - new Vector3(1, 0, 0), transform.rotation) as GameObject;
+            b.GetComponent<AttackScript>().left = true;
+            b.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            Instantiate(bullet, transform.position + new Vector3(1, 0, 0), transform.rotation);
+            GameObject b = Instantiate(bullet, transform.position + new Vector3(1, 0, 0), transform.rotation) as GameObject;
+            b.GetComponent<AttackScript>().left = false;
+            b.transform.localScale = new Vector3(-1, 1, 1);
         }
         yield return new WaitForSeconds(1f);
         running = false;

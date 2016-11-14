@@ -78,10 +78,10 @@ public class PlayerMoveScript : MonoBehaviour {
         {
             GameObject.Find("Fire Effect").GetComponent<Animator>().SetBool("Fired", false);
         }
-        if (Input.GetKey(KeyCode.Space) && shootTimer > shootDelay)
+        if (Input.GetKeyDown(KeyCode.Space) && shootTimer > shootDelay)
         {
             GameObject.Find("Fire Effect").GetComponent<Animator>().SetBool("Fired", true);
-            Instantiate(bullet, transform.position, transform.rotation);
+            Instantiate(bullet, transform.position + new Vector3(transform.localScale.x, 0, 0), transform.rotation);
             shootTimer = 0;
         }
     }

@@ -73,7 +73,7 @@ public class AttackScript : MonoBehaviour {
         {
             if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -142 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
             {
-                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(260, 0, 0);
+                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(50, 0, 0);
             }
             else {
                 Destroy(col.gameObject);
