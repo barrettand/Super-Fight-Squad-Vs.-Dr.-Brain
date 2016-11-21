@@ -71,13 +71,15 @@ public class AttackScript : MonoBehaviour {
         }
         if (col.gameObject.name.Contains("Player") && gameObject.name.Contains("Hench"))
         {
-            if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -142 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
+            if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -140 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
             {
-                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(50, 0, 0);
+                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(75, 0, 0);
             }
-            else {
+            else
+            {
+                PlayerPrefs.SetInt("tempHigh", col.gameObject.GetComponent<PlayerMoveScript>().playerScore);
                 Destroy(col.gameObject);
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("High Scores");
             }
             Destroy(this.gameObject);
         }

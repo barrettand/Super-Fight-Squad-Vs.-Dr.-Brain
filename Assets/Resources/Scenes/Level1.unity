@@ -627,7 +627,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Level Cleared!
+  m_Text: 'Level Cleared!
+
+    Press Space to continue!'
 --- !u!222 &1597941801
 CanvasRenderer:
   m_ObjectHideFlags: 0

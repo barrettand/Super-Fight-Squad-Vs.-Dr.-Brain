@@ -83,7 +83,8 @@ public class CameraMove : MonoBehaviour {
         }
         if (cam.transform.position.x >= 42.2 && Input.GetKey(KeyCode.Space) && GameObject.Find("Cleared").GetComponent<Text>().enabled)
         {
-            SceneManager.LoadScene("Menu");
+            PlayerPrefs.SetInt("tempHigh", player.GetComponent<PlayerMoveScript>().playerScore);
+            SceneManager.LoadScene("High Scores");
         }
     }
 }

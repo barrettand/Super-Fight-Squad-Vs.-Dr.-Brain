@@ -12,7 +12,7 @@ public class PlayButton : MonoBehaviour {
         btn.onClick.AddListener(LoadLevelOne);
 	}
 
-    void LoadLevelOne ()
+    public void LoadLevelOne ()
     {
         SceneManager.LoadScene("Level1");
     }
