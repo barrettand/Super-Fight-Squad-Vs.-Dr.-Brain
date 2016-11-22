@@ -101,6 +101,7 @@ GameObject:
   - 223: {fileID: 234641327}
   - 114: {fileID: 234641326}
   - 114: {fileID: 234641325}
+  - 114: {fileID: 234641329}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -185,6 +186,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &234641329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 234641324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3157e05246975304f8e4621537f1dc80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &270521066
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1529505959}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1204886470
