@@ -88,4 +88,8 @@ public class PlayerMoveScript : MonoBehaviour {
     public void AddScore() {
         playerScore += 100;
     }
+
+    public void ReduceScore() {
+        playerScore -= 50;
+    }
 }

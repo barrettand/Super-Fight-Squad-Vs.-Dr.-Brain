@@ -23,12 +23,13 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!stopped) {
+            GameObject.Find("Health").GetComponent<RectTransform>().position = new Vector3(217, 659, 0);
             GO.SetActive(true);
         }
         else
         {
             GO.SetActive(false);
-        }
+       }
         if (cam.transform.position.x == 0 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;

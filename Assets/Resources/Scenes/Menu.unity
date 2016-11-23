@@ -583,7 +583,6 @@ GameObject:
   - 222: {fileID: 1529505963}
   - 114: {fileID: 1529505962}
   - 114: {fileID: 1529505961}
-  - 114: {fileID: 1529505964}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -649,7 +648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1529505964}
+      - m_Target: {fileID: 234641329}
         m_MethodName: LoadLevelOne
         m_Mode: 1
         m_Arguments:
@@ -695,17 +694,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529505959}
---- !u!114 &1529505964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1529505959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689375fb8264e66478f77221d9e67d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2142354311
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +705,6 @@ GameObject:
   - 222: {fileID: 2142354315}
   - 114: {fileID: 2142354314}
   - 114: {fileID: 2142354313}
-  - 114: {fileID: 2142354316}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -783,7 +770,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2142354316}
+      - m_Target: {fileID: 234641329}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -829,14 +816,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2142354311}
---- !u!114 &2142354316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142354311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddba1926ba3673e448f5b259686d4adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
