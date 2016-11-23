@@ -37,7 +37,6 @@ public class CameraMove : MonoBehaviour {
         {
             stopped = true;
             int r = Random.Range(0, 3);
-            print(r);
             if (r == 0) {
                 Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y, 0), cam.transform.rotation);
             }
