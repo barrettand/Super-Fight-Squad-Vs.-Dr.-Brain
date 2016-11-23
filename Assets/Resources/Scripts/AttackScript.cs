@@ -8,9 +8,11 @@ public class AttackScript : MonoBehaviour {
 
     private SpriteRenderer sr;
     public bool left;
+    Canvas c;
 
     void Start ()
     {
+        c = GameObject.Find("Canvas").GetComponent<Canvas>();
         if (gameObject.name.Contains("Hench"))
         {
             foreach (EnemyMoveScript e in FindObjectsOfType(typeof(EnemyMoveScript)) as EnemyMoveScript[])
@@ -71,10 +73,10 @@ public class AttackScript : MonoBehaviour {
         }
         if (col.gameObject.name.Contains("Player") && gameObject.name.Contains("Hench"))
         {
-            if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > 0 && (transform.position.y > col.gameObject.transform.position.y - 0.5 || transform.position.y < col.gameObject.transform.position.y + 0.5))
+            if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -50)
             {
                 GameObject.Find("Player").GetComponent<PlayerMoveScript>().ReduceScore();
-                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(225, 0, 0);
+                GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(50 * c.scaleFactor, 0, 0);
             }
             else
             {
