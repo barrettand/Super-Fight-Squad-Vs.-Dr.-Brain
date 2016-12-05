@@ -36,7 +36,7 @@ public class PlayerMoveScript : MonoBehaviour {
             }
             if (transform.localPosition.x > -7)
             {
-                    transform.Translate(0.1f, 0, 0);
+                    transform.Translate(-0.1f, 0, 0);
             }
             bullet.GetComponent<AttackScript>().left = true;
         }

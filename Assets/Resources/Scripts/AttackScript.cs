@@ -49,13 +49,14 @@ public class AttackScript : MonoBehaviour {
             else {
                 if (left)
                 {
+                    transform.Translate(-0.5f, 0, 0);
                     transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
                 }
                 else
                 {
+                    transform.Translate(0.5f, 0, 0);
                     transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
                 }
-                transform.Translate(0.5f, 0, 0);
             }
         }
         else
