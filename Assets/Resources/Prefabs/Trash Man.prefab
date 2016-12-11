@@ -21,6 +21,8 @@ GameObject:
   - 4: {fileID: 4000012301316154}
   - 212: {fileID: 212000011451756718}
   - 95: {fileID: 95000010569609562}
+  - 114: {fileID: 114000013194986438}
+  - 61: {fileID: 61000012940278668}
   m_Layer: 0
   m_Name: Trash Man
   m_TagString: Untagged
@@ -41,6 +43,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000012940278668
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010805673810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.003565669, y: 0.08201885}
+  serializedVersion: 2
+  m_Size: {x: 2.61, y: 3.22}
 --- !u!95 &95000010569609562
 Animator:
   serializedVersion: 3
@@ -58,6 +74,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000013194986438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010805673810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27ad41e32ba2cd4d86eb43b74f880c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  currentLoc: {x: 0, y: 0, z: 0}
+  bounceTimer: 0
+  animTime: 0
 --- !u!212 &212000011451756718
 SpriteRenderer:
   m_ObjectHideFlags: 1

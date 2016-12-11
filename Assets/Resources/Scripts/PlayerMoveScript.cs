@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveScript : MonoBehaviour {
 
@@ -8,7 +9,6 @@ public class PlayerMoveScript : MonoBehaviour {
     public float shootDelay;
     private float shootTimer = 0;
     public int playerScore;
-    public EnemyMoveScript opponent;
 
 	// Use this for initialization
 	void Start () {
@@ -91,5 +91,21 @@ public class PlayerMoveScript : MonoBehaviour {
 
     public void ReduceScore() {
         playerScore -= 50;
+    }
+
+    public void OnTriggerEnter2D (Collider2D col)
+    {
+        print(true);
+        if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -50)
+        {
+            ReduceScore();
+            GameObject.Find("Health").GetComponent<RectTransform>().position -= new Vector3(100 * FindObjectOfType<Canvas>().scaleFactor, 0, 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("tempHigh", col.gameObject.GetComponent<PlayerMoveScript>().playerScore);
+            Destroy(col.gameObject);
+            SceneManager.LoadScene("High Scores");
+        }
     }
 }

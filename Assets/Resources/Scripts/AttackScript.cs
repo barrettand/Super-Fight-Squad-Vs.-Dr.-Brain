@@ -66,8 +66,7 @@ public class AttackScript : MonoBehaviour {
 	}
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name.Contains("Enemy") && !gameObject.name.Contains("Hench")) {
-            GameObject.Find("Player").GetComponent<PlayerMoveScript>().opponent = null;
+        if ((col.gameObject.name.Contains("Enemy") || col.gameObject.name.Contains("Trash")) && !gameObject.name.Contains("Hench")) {
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();
@@ -87,6 +86,11 @@ public class AttackScript : MonoBehaviour {
             }
             Destroy(this.gameObject);
         }
+    }
+    public void OnTriggerEnter2D (Collider2D col)
+    {
+        Destroy(col.gameObject);
+        Destroy(this.gameObject);
     }
 
 }

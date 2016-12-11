@@ -271,7 +271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012301316154, guid: 486c61a22d47a9644ae53d23233cec02, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.92
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 4000012301316154, guid: 486c61a22d47a9644ae53d23233cec02, type: 2}
       propertyPath: m_LocalPosition.z
@@ -479,7 +479,6 @@ MonoBehaviour:
   bullet: {fileID: 1000010753830964, guid: 48ff6432b0563524cb7f4630a139df50, type: 2}
   shootDelay: 0.15
   playerScore: 0
-  opponent: {fileID: 0}
 --- !u!1001 &1010168095
 Prefab:
   m_ObjectHideFlags: 0
@@ -590,6 +589,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1106100470}
+--- !u!1 &1393803313 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010805673810, guid: 486c61a22d47a9644ae53d23233cec02,
+    type: 2}
+  m_PrefabInternal: {fileID: 570181634}
+--- !u!50 &1393803314
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393803313}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1596864415
 GameObject:
   m_ObjectHideFlags: 0

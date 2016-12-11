@@ -29,11 +29,11 @@ public class CameraMove : MonoBehaviour {
         {
             GO.SetActive(false);
         }
-        if (cam.transform.position.x == 0 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        if (cam.transform.position.x == 0 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
         {
             stopped = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned)
+        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length == 0 && !spawned)
         {
             stopped = true;
             int r = Random.Range(0, 3);
@@ -52,12 +52,12 @@ public class CameraMove : MonoBehaviour {
 
             }
         }
-        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 10 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
         {
             stopped = true;
             spawned = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned1)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length == 0 && !spawned1)
         {
             stopped = true;
             int r = Random.Range(0, 2);
@@ -80,12 +80,12 @@ public class CameraMove : MonoBehaviour {
 
             }
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length > 0)
         {
             stopped = true;
             spawned1 = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned2)
+        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned2)
         {
             stopped = true;
             int r = Random.Range(0, 2);
@@ -116,7 +116,7 @@ public class CameraMove : MonoBehaviour {
 
             }
         }
-        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 40 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
         {
             stopped = true;
             spawned2 = true;
