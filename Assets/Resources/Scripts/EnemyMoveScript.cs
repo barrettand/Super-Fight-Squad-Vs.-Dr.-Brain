@@ -34,7 +34,7 @@ public class EnemyMoveScript : MonoBehaviour {
             {
                 if (transform.position.x < player.transform.position.x - 3)
                 {
-                    transform.Translate(-0.05f, 0, 0);
+                    transform.Translate(0.05f, 0, 0);
                 }
                 transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
                 bullet.GetComponent<AttackScript>().left = false;

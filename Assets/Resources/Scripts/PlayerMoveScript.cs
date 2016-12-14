@@ -95,7 +95,6 @@ public class PlayerMoveScript : MonoBehaviour {
 
     public void OnTriggerEnter2D (Collider2D col)
     {
-        print(true);
         if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -50)
         {
             ReduceScore();
@@ -103,8 +102,8 @@ public class PlayerMoveScript : MonoBehaviour {
         }
         else
         {
-            PlayerPrefs.SetInt("tempHigh", col.gameObject.GetComponent<PlayerMoveScript>().playerScore);
-            Destroy(col.gameObject);
+            PlayerPrefs.SetInt("tempHigh", gameObject.GetComponent<PlayerMoveScript>().playerScore);
+            Destroy(gameObject);
             SceneManager.LoadScene("High Scores");
         }
     }

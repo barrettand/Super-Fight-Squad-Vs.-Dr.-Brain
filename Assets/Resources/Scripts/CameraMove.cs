@@ -29,14 +29,14 @@ public class CameraMove : MonoBehaviour {
         {
             GO.SetActive(false);
         }
-        if (cam.transform.position.x == 0 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
+        if (cam.transform.position.x == 0 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length == 0 && !spawned)
+        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned)
         {
             stopped = true;
-            int r = Random.Range(0, 3);
+            int r = Random.Range(0, 2);
             if (r == 0) {
                 Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y, 0), cam.transform.rotation);
             }
@@ -52,12 +52,12 @@ public class CameraMove : MonoBehaviour {
 
             }
         }
-        else if (Mathf.Round(cam.transform.position.x) == 10 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
+        else if (Mathf.Round(cam.transform.position.x) == 10 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;
             spawned = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length == 0 && !spawned1)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned1)
         {
             stopped = true;
             int r = Random.Range(0, 2);
@@ -80,43 +80,18 @@ public class CameraMove : MonoBehaviour {
 
             }
         }
-        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0 && FindObjectsOfType<TrashEnemyMoveScript>().Length > 0)
+        else if (Mathf.Round(cam.transform.position.x) == 20 && FindObjectsOfType<EnemyMoveScript>().Length > 0)
         {
             stopped = true;
             spawned1 = true;
         }
-        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && FindObjectsOfType<EnemyMoveScript>().Length == 0 && !spawned2)
+        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<BigChiefMoveScript>().Length == 0 && !spawned2)
         {
             stopped = true;
-            int r = Random.Range(0, 2);
-            if (r == 0)
-            {
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 10, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y - 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 10, cam.transform.position.y - 2, 0), cam.transform.rotation);
-            }
-            else if (r == 1)
-            {
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 15, cam.transform.position.y, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 20, cam.transform.position.y, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 25, cam.transform.position.y, 0), cam.transform.rotation);
-            }
-            else
-            {
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 10, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y - 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 10, cam.transform.position.y - 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 15, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 15, cam.transform.position.y + 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x + 15, cam.transform.position.y - 2, 0), cam.transform.rotation);
-                Instantiate(Resources.Load("Prefabs/Enemy"), new Vector3(cam.transform.position.x - 15, cam.transform.position.y - 2, 0), cam.transform.rotation);
-
-            }
+            Instantiate(Resources.Load("Prefabs/Big Chief"), new Vector3(cam.transform.position.x + 10, cam.transform.position.y + 2, 0), cam.transform.rotation);
+                
         }
-        else if (Mathf.Round(cam.transform.position.x) == 40 && (FindObjectsOfType<EnemyMoveScript>().Length > 0 || FindObjectsOfType<TrashEnemyMoveScript>().Length > 0))
+        else if (Mathf.Round(cam.transform.position.x) == 40 && FindObjectsOfType<BigChiefMoveScript>().Length > 0)
         {
             stopped = true;
             spawned2 = true;

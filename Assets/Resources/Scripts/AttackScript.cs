@@ -20,13 +20,6 @@ public class AttackScript : MonoBehaviour {
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), e.GetComponent<Collider2D>());
             }
         }
-        else
-        {
-            foreach (PlayerMoveScript p in FindObjectsOfType(typeof(PlayerMoveScript)) as PlayerMoveScript[])
-            {
-                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), p.GetComponent<Collider2D>());
-            }
-        }
         sr = GetComponent<SpriteRenderer>();
     }
 	
@@ -39,12 +32,13 @@ public class AttackScript : MonoBehaviour {
                 if (left)
                 {
                     transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                    transform.Translate(-0.25f, 0, 0);
                 }
                 else
                 {
                     transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                    transform.Translate(0.25f, 0, 0);
                 }
-                transform.Translate(-0.25f, 0, 0);
             }
             else {
                 if (left)
@@ -71,6 +65,12 @@ public class AttackScript : MonoBehaviour {
             Destroy(this.gameObject);
             GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();
         }
+        if (col.gameObject.name.Contains("Chief") && !gameObject.name.Contains("Hench"))
+        {
+            Destroy(this.gameObject);
+            col.gameObject.GetComponent<BigChiefMoveScript>().Damage();
+            GameObject.Find("Player").GetComponent<PlayerMoveScript>().AddScore();
+        }
         if (col.gameObject.name.Contains("Player") && gameObject.name.Contains("Hench"))
         {
             if (GameObject.Find("Health").GetComponent<RectTransform>().position.x > -50)
@@ -89,8 +89,11 @@ public class AttackScript : MonoBehaviour {
     }
     public void OnTriggerEnter2D (Collider2D col)
     {
-        Destroy(col.gameObject);
-        Destroy(this.gameObject);
+        if (!gameObject.name.Contains("Hench"))
+        {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
     }
 
 }
